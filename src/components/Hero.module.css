@@ -1082,12 +1082,23 @@
 
     /* Maximize iPhone size */
     .iphone {
-        width: 95vw !important;
-        /* Occupy full width with minimal gap */
+        width: 90vw !important;
+        /* Slightly reduced to prevent edge touching */
         height: auto !important;
-        max-height: 95vh;
-        max-width: 500px;
-        /* Cap for larger mobiles */
+        aspect-ratio: 9/19.5;
+        /* Essential for shape */
+        max-height: 85vh;
+        /* Ensure it fits vertically */
+        max-width: 450px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        background: #000;
+        /* Fallback frame color */
+        border-radius: 40px;
+        /* Ensure shape is visible even if image fails */
+        flex-shrink: 0;
+        /* Prevent crushing */
     }
 
     /* Center Text Content - First Section */
