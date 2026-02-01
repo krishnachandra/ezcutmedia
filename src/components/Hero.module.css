@@ -1,0 +1,587 @@
+.hero {
+    position: relative;
+    height: 100vh;
+    min-height: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    text-align: center;
+    background-color: #0B0B0F;
+    /* Premium Rich Black */
+}
+
+.content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1280px;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+    text-align: left;
+    /* Shift text to left */
+    height: 100%;
+}
+
+.textSide {
+    flex: 1;
+    max-width: 600px;
+}
+
+.phoneSide {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    /* Align phone to right */
+    height: 90vh;
+    /* 90% of viewport */
+    display: flex;
+    align-items: center;
+}
+
+/* iPhone 17 Frame (Titanium Finish) */
+.iphone {
+    width: 360px;
+    height: 720px;
+    max-height: 90vh;
+    background: #000;
+    border-radius: 54px;
+    border: 4px solid #444;
+    /* Titanium Grey */
+    box-shadow:
+        0 0 0 4px #2a2a2a,
+        /* Inner Bezel Gradient layer 1 */
+        0 0 0 5px #1a1a1a,
+        /* Darker Edge */
+        0 25px 50px rgba(0, 0, 0, 0.6);
+    /* Drop Shadow */
+    position: relative;
+    overflow: hidden;
+    z-index: 10;
+}
+
+/* Scrollable Screen */
+.screen {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    background: #000;
+    border-radius: 48px;
+    scrollbar-width: none;
+}
+
+.screen::-webkit-scrollbar {
+    display: none;
+}
+
+/* StatusBar */
+.statusBar {
+    position: absolute;
+    top: 15px;
+    /* Aligns with Dynamic Island */
+    left: 0;
+    width: 100%;
+    padding: 0 30px;
+    /* Push in slightly more for rounded corners */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 50;
+    color: white;
+    font-size: 15px;
+    /* Slightly larger for newer iPhones */
+    font-weight: 600;
+    pointer-events: none;
+}
+
+.statusIcons {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+
+/* Signal Flickering */
+.signal {
+    display: flex;
+    align-items: flex-end;
+    gap: 2px;
+    height: 12px;
+}
+
+.bar {
+    width: 3px;
+    background: white;
+    border-radius: 1px;
+}
+
+.bar:nth-child(1) {
+    height: 40%;
+    animation: flicker 3s infinite;
+}
+
+.bar:nth-child(2) {
+    height: 60%;
+    animation: flicker 4s infinite 0.5s;
+}
+
+.bar:nth-child(3) {
+    height: 80%;
+    animation: flicker 2s infinite 0.2s;
+}
+
+.bar:nth-child(4) {
+    height: 100%;
+    animation: flicker 5s infinite;
+}
+
+@keyframes flicker {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 0.3;
+    }
+}
+
+/* Battery */
+.battery {
+    width: 24px;
+    height: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 4px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 1px;
+}
+
+.battery::after {
+    content: '';
+    position: absolute;
+    right: -3px;
+    top: 3px;
+    width: 2px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.5);
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
+
+.batteryFill {
+    height: 100%;
+    width: 80%;
+    /* 80% charged */
+    background: white;
+    border-radius: 2px;
+}
+
+/* Wifi */
+.wifi {
+    width: 18px;
+    height: 14px;
+    position: relative;
+}
+
+.wifi::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: white;
+    box-shadow: 0 0 0 2px black, 0 -4px 0 2px black, 0 -4px 0 3px white, 0 -9px 0 2px black, 0 -9px 0 4px white;
+}
+
+/* Notch Removed - used Dynamic Island above */
+
+/* Reel Actions (Right Side) */
+.reelActions {
+    position: absolute;
+    bottom: 150px;
+    /* Shifted up for comment bar */
+    right: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 20;
+    align-items: center;
+}
+
+.actionBtn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    color: white;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.actionIcon {
+    width: 28px;
+    height: 28px;
+    fill: none;
+    stroke: white;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.albumArt {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    border: 2px solid white;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+/* Music/Audio track at bottom */
+.musicTrack {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 4px 10px;
+    border-radius: 20px;
+    width: fit-content;
+    backdrop-filter: blur(4px);
+}
+
+.musicIcon {
+    font-size: 10px;
+}
+
+.musicText {
+    font-size: 11px;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 150px;
+    text-overflow: ellipsis;
+}
+
+/* Bottom Area */
+.reelContent {
+    position: absolute;
+    bottom: 80px;
+    /* Above comment bar */
+    left: 15px;
+    width: 75%;
+    z-index: 20;
+}
+
+.userRow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.userAvatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: black;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.username {
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.caption {
+    font-size: 14px;
+    line-height: 1.3;
+    color: white;
+    margin-bottom: 12px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Insights Bar (Owner View) */
+.insightsRow {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.insightPill {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(5px);
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    color: white;
+}
+
+/* Add Comment Bar */
+.commentBar {
+    position: absolute;
+    bottom: 20px;
+    left: 15px;
+    right: 15px;
+    height: 45px;
+    background: rgba(30, 30, 30, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 22px;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 14px;
+    z-index: 30;
+}
+
+/* Top Controls */
+.topOverlay {
+    position: absolute;
+    top: 60px;
+    /* Below Dynamic Island */
+    left: 0;
+    width: 100%;
+    padding: 0 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 50;
+    pointer-events: none;
+}
+
+.cameraIcon {
+    width: 28px;
+    height: 28px;
+    stroke: white;
+    stroke-width: 2;
+    fill: none;
+}
+
+/* Play Button (Center) */
+.playButton {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 64px;
+    height: 64px;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 25;
+    transition: transform 0.2s, background 0.2s;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.playButton:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+    background: rgba(0, 0, 0, 0.6);
+}
+
+/* Modal Overlay */
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.modalContent {
+    width: 90%;
+    max-width: 400px;
+    /* Mobile width */
+    height: 80vh;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(255, 112, 32, 0.3);
+}
+
+.closeBtn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 1001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Reel Item */
+.reel {
+    width: 100%;
+    height: 100%;
+    /* Occupy full screen height */
+    flex-shrink: 0;
+    /* Prevent shrinking in flex container if applicable, though block is default */
+    position: relative;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.reel iframe {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    /* Optional: Disables clicking so scroll isn't interrupted, user said "like a human" but auto-scroll implies display */
+}
+
+.reelOverlay {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    width: 100%;
+    padding: 10px;
+    border-radius: 12px;
+}
+
+.prehead {
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    display: block;
+    opacity: 0;
+    animation: fadeInDown 0.8s ease forwards 0.2s;
+}
+
+.headline {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards 0.4s;
+}
+
+.subtext {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-bottom: 2.5rem;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards 0.6s;
+}
+
+.actions {
+    display: flex;
+    gap: 1rem;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards 0.8s;
+    justify-content: flex-start;
+    /* Align buttons left */
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 900px) {
+    .content {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 100px;
+    }
+
+    .textSide {
+        max-width: 100%;
+        margin-bottom: 2rem;
+    }
+
+    .actions {
+        justify-content: center;
+    }
+
+    .phoneSide {
+        width: 100%;
+        justify-content: center;
+        height: auto;
+    }
+
+    .iphone {
+        height: 500px;
+    }
+}
