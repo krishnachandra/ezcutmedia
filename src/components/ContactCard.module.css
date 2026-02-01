@@ -80,7 +80,7 @@
 }
 
 .logoSide {
-    background: linear-gradient(135deg, var(--primary) 0%, #d86a1a 100%);
+    background: linear-gradient(135deg, #1f1f1f 0%, #0d0d0d 100%);
     padding: 3rem 2rem;
     display: flex;
     flex-direction: column;
