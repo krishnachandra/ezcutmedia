@@ -44,9 +44,9 @@ export default function Home() {
         </div>
       </section>
 
-      <Services />
-
       <Process />
+
+      <Services />
 
       <div style={{ height: '50px', background: 'linear-gradient(to bottom, var(--surface), var(--background))' }}></div>
 
@@ -136,7 +136,7 @@ export default function Home() {
           <div>
             <h4 style={{ fontSize: '0.9rem', textTransform: 'uppercase', color: 'white', marginBottom: '1.5rem' }}>Connect</h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', color: 'var(--text-secondary)' }}>
-              <a href="#">Instagram</a>
+              <a href="https://instagram.com/ezcut_media" target="_blank">Instagram</a>
               <a href="#">LinkedIn</a>
               <a href="#">Twitter</a>
               <a href="mailto:hello@ezcutmedia.com">hello@ezcutmedia.com</a>

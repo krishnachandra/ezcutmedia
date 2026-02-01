@@ -36,38 +36,29 @@ export default function Hero() {
     // Infinite Scroll Logic
     useEffect(() => {
         const screen = screenRef.current;
-        if (!screen) return;
-
-        // Pause auto-scroll if video is playing
-        if (playingReel) return;
+        if (!screen || playingReel) return;
 
         let currentIndex = 0;
-        const scrollInterval = setInterval(() => {
+
+        const scrollToNextReel = () => {
             currentIndex++;
 
-            // If we reached the start of the duplicate set
-            if (currentIndex === originalReels.length) {
-                // Smooth scroll to it first
-                screen.scrollTo({
-                    top: screen.clientHeight * currentIndex,
-                    behavior: 'smooth'
-                });
-
-                // Wait for smooth scroll (approx 600ms) then silent snap
-                setTimeout(() => {
-                    screen.scrollTo({ top: 0, behavior: 'auto' });
-                    currentIndex = 0;
-                }, 800);  // Increased safety buffer to prevent flickering
-            } else {
-                screen.scrollTo({
-                    top: screen.clientHeight * currentIndex,
-                    behavior: 'smooth'
-                });
+            // Loop back to start after showing all original reels
+            if (currentIndex >= originalReels.length) {
+                currentIndex = 0;
             }
-        }, 4000);
 
-        return () => clearInterval(scrollInterval);
-    }, [playingReel]);
+            screen.scrollTo({
+                top: screen.clientHeight * currentIndex,
+                behavior: 'smooth'
+            });
+        };
+
+        // Change reel every 4 seconds (like TikTok auto-play)
+        const interval = setInterval(scrollToNextReel, 4000);
+
+        return () => clearInterval(interval);
+    }, [playingReel, originalReels.length]);
 
     return (
         <section className={styles.hero}>
@@ -91,26 +82,40 @@ export default function Hero() {
             <div className={`container ${styles.content}`}>
                 {/* Left Side: Text */}
                 <div className={styles.textSide}>
-                    <span className={styles.prehead}>Content at the Speed of Culture</span>
                     <h1 className={styles.headline}>
+                        <span className={styles.subtitle}>under 30 minutes</span>
                         Shoot, Edit & <span className="text-primary">Deliver.</span>
                     </h1>
                     <p className={styles.subtext}>
-                        Short-form video production for brands, celebrities, and creators. <br className="hidden md:block" />
-                        We shoot, edit, and deliver them post-ready in <strong>under 30 minutes</strong>.
+                        Short-form video production for brands, celebrities, and creators. We shoot, edit, and deliver them almost instantly.
                     </p>
+
+                    <div className={styles.rotatorWrapper}>
+                        We create content for
+                        <div className={styles.rotatorWindow}>
+                            <div className={styles.rotatorList}>
+                                <div className={styles.rotatorItem}>Weddings <span className={styles.ringEmoji}>💍</span></div>
+                                <div className={styles.rotatorItem}>Corporate/Social Events <span className={styles.toastEmoji}>🥂</span></div>
+                                <div className={`${styles.rotatorItem} ${styles.partyItem}`}>Private Parties <span className={styles.partyEmoji}>🥳</span></div>
+                                <div className={styles.rotatorItem}>Movie Launches <span className={styles.actionEmoji}>🎬</span></div>
+                                <div className={styles.rotatorItem}>Weddings <span className={styles.ringEmoji}>💍</span></div>
+                            </div>
+                        </div>
+                    </div>
+
                     <div className={styles.actions}>
-                        <Link href="https://wa.me/yourwhatsapplink" target="_blank" className="btn btn-primary" style={{ display: 'flex', alignItems: 'center', gap: '8px', paddingRight: '20px' }}>
-                            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.592 2.654-.696c1.006.574 1.944.887 3.322.887 3.166-.007 5.767-2.607 5.767-5.772 0-3.18-2.583-5.764-5.763-5.764zm6.65 10.428c-1.63 1.628-3.956 2.525-6.307 2.525h-.006c-1.393 0-2.822-.387-4.093-1.121l-4.5 1.18 1.196-4.387c-.815-1.362-1.246-2.91-1.244-4.502.007-4.912 4.005-8.91 8.918-8.91 2.38 0 4.619.927 6.302 2.61a8.878 8.878 0 0 1 2.61 6.29 8.87 8.87 0 0 1-2.617 6.297z" /></svg>
-                            WhatsApp
+                        <Link href="https://wa.me/919121930521" target="_blank" className={styles.heroIconLink} aria-label="WhatsApp">
+                            <Image src="/assets/whatsapp.png" alt="WhatsApp" width={40} height={40} />
                         </Link>
-                        <Link href="tel:+1234567890" className="btn btn-outline" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                            Call
+
+                        <Link href="tel:+919121930521" className={styles.heroIconLink} aria-label="Call">
+                            <div className={styles.iconCircle}>
+                                <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.44-5.15-3.75-6.59-6.59l1.97-1.57c.26-.26.35-.65.24-1.01A11.36 11.36 0 0 1 8.59 4.29c0-.55-.45-1-1-1H4.21c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.38c0-.55-.45-1-1-1z" /></svg>
+                            </div>
                         </Link>
-                        <Link href="https://instagram.com/ezcutmedia" target="_blank" className="btn btn-outline" style={{ display: 'flex', alignItems: 'center', gap: '8px', paddingRight: '20px' }}>
-                            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                            ezcut_media
+
+                        <Link href="https://instagram.com/ezcut_media" target="_blank" className={styles.heroIconLink} aria-label="Instagram">
+                            <Image src="/assets/instagram.png" alt="Instagram" width={40} height={40} />
                         </Link>
                     </div>
                 </div>
@@ -161,7 +166,7 @@ export default function Hero() {
                                 <div key={i} className={styles.reel}>
                                     <Image
                                         src={item.src}
-                                        alt="Reel content"
+                                        alt={`${item.title} - Professional Instagram reel by EZ Cut Media showcasing ${item.views} views`}
                                         fill
                                         style={{ objectFit: 'cover' }}
                                         priority={i < 2}

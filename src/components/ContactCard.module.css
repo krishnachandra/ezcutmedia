@@ -1,0 +1,272 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 1rem;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.card {
+    background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+    border-radius: 20px;
+    max-width: 900px;
+    width: 100%;
+    position: relative;
+    border: 1px solid rgba(244, 122, 31, 0.3);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    animation: slideUp 0.4s ease;
+    overflow: hidden;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.closeBtn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    font-size: 2rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+    line-height: 1;
+}
+
+.closeBtn:hover {
+    background: var(--primary);
+    transform: rotate(90deg);
+}
+
+.cardInner {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    min-height: 500px;
+}
+
+.logoSide {
+    background: linear-gradient(135deg, var(--primary) 0%, #d86a1a 100%);
+    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.logoSide::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+.logoText {
+    text-align: center;
+    color: white;
+    z-index: 2;
+}
+
+.logoText h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.logoText p {
+    font-size: 0.9rem;
+    letter-spacing: 0.2em;
+    opacity: 0.9;
+}
+
+.infoSide {
+    padding: 3rem;
+    color: white;
+}
+
+.title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 2.5rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.highlight {
+    color: var(--primary);
+}
+
+.followUs {
+    color: var(--primary) !important;
+}
+
+.infoGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.infoSection {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.infoSection h4 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+}
+
+.infoSection p {
+    color: white;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.infoSection a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    display: block;
+}
+
+.infoSection a:hover {
+    color: var(--primary);
+    transform: translateX(5px);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .card {
+        max-width: 95vw;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+
+    .cardInner {
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+
+    .logoSide {
+        padding: 2rem 1.5rem;
+        min-height: 250px;
+    }
+
+    .logoText h2 {
+        font-size: 2rem;
+    }
+
+    .infoSide {
+        padding: 2rem 1.5rem;
+    }
+
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .subtitle {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+    }
+
+    .infoGrid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .closeBtn {
+        top: 0.5rem;
+        right: 0.5rem;
+        width: 35px;
+        height: 35px;
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .logoSide img {
+        width: 150px !important;
+        height: 150px !important;
+    }
+
+    .logoText h2 {
+        font-size: 1.75rem;
+    }
+
+    .logoText p {
+        font-size: 0.75rem;
+    }
+
+    .infoSide {
+        padding: 1.5rem 1rem;
+    }
+}
