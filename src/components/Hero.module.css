@@ -1088,13 +1088,13 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
-        height: 100vh;
-        /* Full viewport height */
-        padding-bottom: 4rem;
-        /* Space for scroll indicator */
-        padding-top: 2rem;
-        /* Added extra top breathing room */
+        justify-content: flex-start;
+        /* Start from top to prevent cutoff */
+        min-height: 100vh;
+        padding-bottom: 6rem;
+        /* More space at bottom */
+        padding-top: 140px;
+        /* Fixed safe distance from top */
     }
 
     .hero {
