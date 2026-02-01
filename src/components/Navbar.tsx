@@ -53,7 +53,7 @@ export default function Navbar() {
                     {!isTeamPage && (
                         <>
                             <button onClick={() => setShowContact(true)} className={styles.contactButton}>
-                                Contact
+                                About Us
                             </button>
 
                             <div className={styles.socialIcons}>
