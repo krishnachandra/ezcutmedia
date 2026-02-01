@@ -121,7 +121,7 @@ export default function Hero() {
                 </div>
 
                 {/* Right Side: iPhone Portfolio */}
-                <div className={styles.phoneSide}>
+                <div className={styles.phoneSide} id="mobile-portfolio">
                     <div className={styles.iphone}>
                         {/* Status Bar */}
                         <div className={styles.statusBar}>
