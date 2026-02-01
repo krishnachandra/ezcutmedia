@@ -36,7 +36,6 @@ export default function ContactCard({ isOpen, onClose }: ContactCardProps) {
                     {/* Right Side - Contact Info */}
                     <div className={styles.infoSide}>
                         <h3 className={styles.title}>About EZ Cut Media</h3>
-                        <p className={styles.subtitle}>Contact Info <span className={styles.highlight}>Here</span></p>
 
                         <div className={styles.infoGrid}>
                             <div className={styles.infoSection}>
