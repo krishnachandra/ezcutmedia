@@ -1064,8 +1064,8 @@
     }
 }
 
-/* Mobile Optimizations (0px - 768px) - Includes Tablets */
-@media (max-width: 768px) {
+/* Mobile Optimizations (0px - 767px) */
+@media (max-width: 767px) {
 
     /* Show Phone as Second Section */
     .phoneSide {
@@ -1075,10 +1075,19 @@
         align-items: center;
         justify-content: center;
         scroll-margin-top: 0;
-        /* Snap precisely */
-        padding-top: 4rem;
-        /* Offset for navbar if needed */
+        padding: 0;
+        /* Minimal padding */
         margin-top: 0;
+    }
+
+    /* Maximize iPhone size */
+    .iphone {
+        width: 95vw !important;
+        /* Occupy full width with minimal gap */
+        height: auto !important;
+        max-height: 95vh;
+        max-width: 500px;
+        /* Cap for larger mobiles */
     }
 
     /* Center Text Content - First Section */
