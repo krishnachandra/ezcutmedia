@@ -21,11 +21,18 @@ export default function Navbar() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    const handleLogoClick = (e: React.MouseEvent) => {
+        if (pathname === '/') {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    };
+
     return (
         <>
             <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ''}`}>
                 <div className={`container ${styles.container}`}>
-                    <Link href="/" className={styles.logo}>
+                    <Link href="/" className={styles.logo} onClick={handleLogoClick}>
                         <Image
                             src="/assets/logo-icon.png"
                             alt="EZ Cut Media"
