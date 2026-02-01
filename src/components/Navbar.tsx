@@ -52,11 +52,9 @@ export default function Navbar() {
 
                     {!isTeamPage && (
                         <>
-                            {!scrolled && (
-                                <button onClick={() => setShowContact(true)} className={styles.contactButton}>
-                                    Contact
-                                </button>
-                            )}
+                            <button onClick={() => setShowContact(true)} className={styles.contactButton}>
+                                Contact
+                            </button>
 
                             <div className={styles.socialIcons}>
                                 <Link href="https://wa.me/919121930521" target="_blank" className={styles.iconLink}>

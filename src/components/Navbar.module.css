@@ -113,8 +113,27 @@
     transform: scale(1.1);
 }
 
+@media (min-width: 769px) {
+    .scrolled .contactButton {
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-10px);
+    }
+}
+
 @media (max-width: 768px) {
     .links {
         display: none;
+    }
+
+    .socialIcons {
+        display: none !important;
+    }
+
+    /* Ensure button is positioned correctly on mobile */
+    .contactButton {
+        right: 1rem;
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
     }
 }
