@@ -60,6 +60,21 @@ export default function Hero() {
         return () => clearInterval(interval);
     }, [playingReel, originalReels.length]);
 
+    const scrollToMobilePortfolio = (e: React.MouseEvent) => {
+        e.preventDefault();
+        const element = document.getElementById('mobile-portfolio');
+        if (element) {
+            const offset = 80; // Navbar height offset
+            const elementPosition = element.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: "smooth"
+            });
+        }
+    };
+
     return (
         <section className={styles.hero}>
             {/* Uniform background color is handled in CSS now */}
@@ -259,10 +274,10 @@ export default function Hero() {
 
             {/* Mobile Bottom CTA */}
             <div className={styles.scrollIndicator}>
-                <Link href="#mobile-portfolio" className={styles.scrollLink}>
+                <a href="#mobile-portfolio" onClick={scrollToMobilePortfolio} className={styles.scrollLink}>
                     <span>View Portfolio</span>
                     <svg className={styles.chevron} viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                </Link>
+                </a>
             </div>
         </section>
     );
