@@ -1064,8 +1064,8 @@
     }
 }
 
-/* Mobile Optimizations (0px - 767px) */
-@media (max-width: 767px) {
+/* Mobile Optimizations (0px - 768px) - Includes Tablets */
+@media (max-width: 768px) {
 
     /* Show Phone as Second Section */
     .phoneSide {
@@ -1093,6 +1093,8 @@
         /* Full viewport height */
         padding-bottom: 4rem;
         /* Space for scroll indicator */
+        padding-top: 2rem;
+        /* Added extra top breathing room */
     }
 
     .hero {
@@ -1108,8 +1110,8 @@
         flex-direction: column;
         /* Stack top-down */
         justify-content: flex-start;
-        padding-top: 60px;
-        /* Navbar offset */
+        padding-top: 100px;
+        /* Increased from 60px to push content down */
     }
 
     /* Stack 'We create content for' and rotator */
