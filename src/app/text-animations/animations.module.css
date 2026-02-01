@@ -1,0 +1,443 @@
+.container {
+    background-color: #0B0B0F;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    color: white;
+    font-family: 'Inter', sans-serif;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.card {
+    background: #111;
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: 0.3s border-color;
+}
+
+.card:hover {
+    border-color: #ff4d00;
+}
+
+.label {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    font-size: 0.8rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    text-align: center;
+}
+
+.highlight {
+    color: #ff4d00;
+    /* Primary brand color from globals.css usually, hardcoding for safety */
+}
+
+/* --- Variation 1: Typewriter / Speed Typing --- */
+.typewriter {
+    overflow: hidden;
+    /* Ensures the content is not revealed until the animation */
+    white-space: nowrap;
+    /* Keeps the content on a single line */
+    margin: 0 auto;
+    /* Gives that scrolling effect as the typing happens */
+    border-right: .15em solid #ff4d00;
+    /* The typwriter cursor */
+    animation:
+        typing 2s steps(40, end),
+        blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+    from {
+        width: 0
+    }
+
+    to {
+        width: 100%
+    }
+}
+
+@keyframes blink-caret {
+
+    from,
+    to {
+        border-color: transparent
+    }
+
+    50% {
+        border-color: #ff4d00;
+    }
+}
+
+/* --- Variation 2: Fast Slide Up with Blur (Motion Blur) --- */
+.blurSlide span {
+    display: inline-block;
+    opacity: 0;
+    filter: blur(10px);
+    transform: translateY(50px);
+    animation: slideUpBlur 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.blurSlide span:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.blurSlide span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.blurSlide span:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.blurSlide span:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+@keyframes slideUpBlur {
+    to {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0);
+    }
+}
+
+/* --- Variation 3: Glitch Snap --- */
+.glitchWrapper {
+    position: relative;
+}
+
+.glitch {
+    position: relative;
+    animation: glitchSnap 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+}
+
+.glitch::before {
+    color: #0ff;
+    z-index: -1;
+    animation: glitch-anim-1 2s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+    color: #f0f;
+    z-index: -2;
+    animation: glitch-anim-2 2s infinite linear alternate-reverse;
+}
+
+@keyframes glitchSnap {
+    0% {
+        transform: scale(3);
+        opacity: 0;
+        filter: blur(20px);
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+        filter: blur(0);
+    }
+}
+
+@keyframes glitch-anim-1 {
+    0% {
+        clip-path: inset(20% 0 80% 0);
+        transform: translate(-2px, 0);
+    }
+
+    20% {
+        clip-path: inset(60% 0 10% 0);
+        transform: translate(2px, 0);
+    }
+
+    40% {
+        clip-path: inset(10% 0 50% 0);
+        transform: translate(-2px, 0);
+    }
+
+    60% {
+        clip-path: inset(80% 0 5% 0);
+        transform: translate(2px, 0);
+    }
+
+    80% {
+        clip-path: inset(30% 0 40% 0);
+        transform: translate(-2px, 0);
+    }
+
+    100% {
+        clip-path: inset(50% 0 30% 0);
+        transform: translate(2px, 0);
+    }
+}
+
+@keyframes glitch-anim-2 {
+    0% {
+        clip-path: inset(10% 0 60% 0);
+        transform: translate(2px, 0);
+    }
+
+    20% {
+        clip-path: inset(80% 0 5% 0);
+        transform: translate(-2px, 0);
+    }
+
+    40% {
+        clip-path: inset(40% 0 20% 0);
+        transform: translate(2px, 0);
+    }
+
+    60% {
+        clip-path: inset(5% 0 80% 0);
+        transform: translate(-2px, 0);
+    }
+
+    80% {
+        clip-path: inset(70% 0 10% 0);
+        transform: translate(2px, 0);
+    }
+
+    100% {
+        clip-path: inset(20% 0 50% 0);
+        transform: translate(-2px, 0);
+    }
+}
+
+
+/* --- Variation 4: Rapid Fire Strobe --- */
+.rapidFire span {
+    opacity: 0;
+    display: inline-block;
+    transform: scale(1.2);
+    animation: stomp 0.2s cubic-bezier(0.6, 0.04, 0.98, 0.335) forwards;
+}
+
+.rapidFire span:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.rapidFire span:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+/* Text logic: Shoot, */
+.rapidFire span:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+/* Edit */
+.rapidFire span:nth-child(4) {
+    animation-delay: 0.45s;
+}
+
+/* & */
+.rapidFire span:nth-child(5) {
+    animation-delay: 0.6s;
+}
+
+/* Deliver. */
+
+@keyframes stomp {
+    0% {
+        opacity: 0;
+        transform: scale(1.5);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+/* --- Variation 5: Infinite Marquee --- */
+.marqueeContainer {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 2rem 0;
+    background: #050505;
+    border: 1px solid #333;
+    border-radius: 12px;
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.marqueeTrack {
+    display: flex;
+    gap: 4rem;
+    width: max-content;
+    animation: scroll 20s linear infinite;
+    /* Must ensure content is duplicated enough to fill width */
+}
+
+.marqueeItem {
+    font-size: 3rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.4);
+    white-space: nowrap;
+}
+
+.marqueeItem.primary {
+    color: #ff4d00;
+    -webkit-text-stroke: 0;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* --- Variation 6: Vertical Rotator --- */
+.rotatorWrapper {
+    font-size: 2.5rem;
+    font-weight: 800;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3em;
+    line-height: 1.2;
+}
+
+.rotatorWindow {
+    height: 1.2em;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+.rotatorList {
+    animation: slideVertical 6s cubic-bezier(0.23, 1, 0.32, 1) infinite;
+}
+
+.rotatorItem {
+    height: 1.2em;
+    display: flex;
+    align-items: center;
+    color: #ff4d00;
+}
+
+@keyframes slideVertical {
+
+    0%,
+    20% {
+        transform: translateY(0);
+    }
+
+    25%,
+    45% {
+        transform: translateY(-25%);
+    }
+
+    50%,
+    70% {
+        transform: translateY(-50%);
+    }
+
+    75%,
+    95% {
+        transform: translateY(-75%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+
+    /* Loop back logic requires careful array structure or snap */
+}
+
+/* Fix for loop: We usually duplicate first item at end and jump. 
+   Simplified keyframes for 4 items: */
+@keyframes slideVertical {
+
+    0%,
+    20% {
+        transform: translateY(0);
+    }
+
+    25%,
+    45% {
+        transform: translateY(-1.2em);
+    }
+
+    50%,
+    70% {
+        transform: translateY(-2.4em);
+    }
+
+    75%,
+    95% {
+        transform: translateY(-3.6em);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.refreshBtn {
+    position: fixed;
+    bottom: 2rem;
+    padding: 1rem 2rem;
+    background: #ff4d00;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 77, 0, 0.4);
+    z-index: 100;
+    transition: transform 0.2s;
+}
+
+.refreshBtn:hover {
+    transform: scale(1.05);
+}
