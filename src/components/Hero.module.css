@@ -1074,7 +1074,8 @@
         width: 100%;
         align-items: center;
         justify-content: center;
-        scroll-margin-top: 0;
+        scroll-margin-top: 100px;
+        /* Offset for navbar */
         padding: 0;
         /* Minimal padding */
         margin-top: 0;
