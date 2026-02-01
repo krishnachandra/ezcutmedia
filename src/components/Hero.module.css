@@ -1104,6 +1104,7 @@
         overflow-y: visible;
         /* Allow scroll */
         padding-top: 0;
+        position: relative;
     }
 
     .container {
@@ -1142,8 +1143,14 @@
         margin-top: 1rem;
     }
 
-    /* Show Scroll Indicator */
+    /* Show Scroll Indicator - Pinned to first viewport */
     .scrollIndicator {
         display: flex;
+        position: absolute;
+        bottom: auto;
+        top: calc(100vh - 7rem);
+        left: 0;
+        right: 0;
+        z-index: 20;
     }
 }
