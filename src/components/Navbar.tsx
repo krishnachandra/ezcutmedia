@@ -48,6 +48,7 @@ export default function Navbar() {
                         <Link href="#packages" className={styles.link}>Packages</Link>
                         <Link href="#portfolio" className={styles.link}>Portfolio</Link>
                         <Link href="/team" className={styles.link}>The Team</Link>
+                        <Link href="/careers" className={styles.link}>Careers</Link>
                     </div>
 
                     {!isTeamPage && (

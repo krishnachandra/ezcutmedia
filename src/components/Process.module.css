@@ -18,9 +18,8 @@
 .number {
     font-size: 4rem;
     font-weight: 800;
-    color: var(--background);
-    text-shadow: -1px -1px 0 var(--border), 1px -1px 0 var(--border), -1px 1px 0 var(--border), 1px 1px 0 var(--border);
-    opacity: 0.5;
+    color: var(--primary);
+    opacity: 1;
     margin-bottom: 1rem;
     line-height: 1;
 }

@@ -2,10 +2,10 @@ import styles from './Process.module.css';
 
 export default function Process() {
     const steps = [
-        { num: '01', title: 'Plan', desc: 'Concept, hook, and shot list in minutes.' },
-        { num: '02', title: 'Shoot', desc: 'High-end capture with our pro team.' },
-        { num: '03', title: 'Edit', desc: 'Live editing on set. Zero lag.' },
-        { num: '04', title: 'Deliver', desc: 'Ready to post before you leave.' },
+        { num: '01', title: 'Plan', desc: 'Select and book a plan according to our comprehensive packages.' },
+        { num: '02', title: 'Shoot', desc: 'Our professional Reelographer comes directly to your location.' },
+        { num: '03', title: 'Edit', desc: 'He shoots & edits on the spot according to your specific requirements.' },
+        { num: '04', title: 'Deliver', desc: 'We deliver the final content ready for you to post immediately.' },
     ];
 
     return (

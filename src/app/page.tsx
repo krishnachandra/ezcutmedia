@@ -2,6 +2,8 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
 import Process from "@/components/Process";
+import Footer from "@/components/Footer";
+import styles from './page.module.css';
 
 export default function Home() {
   return (
@@ -54,11 +56,13 @@ export default function Home() {
       {/* Differentiators */}
       <section className="container" style={{ padding: '8rem 1.5rem' }}>
         <h2 style={{ fontSize: '2.5rem', marginBottom: '4rem', textAlign: 'center' }}>Why EZ Cut Media?</h2>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem' }}>
+        <div className={styles.benefitsGrid}>
           {[
             { title: "30 Minute Turnaround", desc: "Our primary promise. Walk out with finished content." },
+            { title: "Easy & Professional", desc: "Book a trained Reelographer in seconds. Zero hassle." },
+            { title: "Affordable & Clear", desc: "Premium content at unbeatable rates. No hidden costs." },
             { title: "End-to-End Pipeline", desc: "We handle everything from lighting to upload." },
-            { title: "Celebrity Trusted", desc: "Used by public figures who value time and privacy." },
+            { title: "Trusted & Secure", desc: "Used by public figures who value privacy. 100% Safe." },
             { title: "Creator Ecosystem", desc: "We don't just make ads; we build modern brands." }
           ].map((item, i) => (
             <div key={i} style={{ padding: '2.5rem', border: '1px solid var(--border)', borderRadius: '8px', background: 'rgba(255,255,255,0.03)' }}>
@@ -67,6 +71,14 @@ export default function Home() {
               <p style={{ color: 'var(--text-secondary)', lineHeight: '1.6' }}>{item.desc}</p>
             </div>
           ))}
+        </div>
+        <div style={{ marginTop: '4rem', textAlign: 'center', maxWidth: '800px', margin: '4rem auto 0' }}>
+          <p style={{ fontSize: '1.5rem', lineHeight: '1.6', color: 'white', fontWeight: '500' }}>
+            We are not just a service provider but your partner in growth.
+          </p>
+          <p style={{ color: 'var(--text-secondary)', fontSize: '1.1rem', marginTop: '1rem' }}>
+            Whether you&apos;re building a personal brand or driving business goals, our content is designed to make an instant impact.
+          </p>
         </div>
       </section>
 
@@ -113,41 +125,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer style={{ padding: '4rem 0', borderTop: '1px solid var(--border)', background: '#050505' }}>
-        <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '3rem' }}>
-          <div>
-            <h3 style={{ fontWeight: '800', fontSize: '1.5rem', marginBottom: '1rem' }}>EZ CUT MEDIA</h3>
-            <p style={{ color: 'var(--text-secondary)', lineHeight: '1.6' }}>
-              Content at the speed of culture.<br />
-              Shoot. Cut. Deliver.
-            </p>
-          </div>
-
-          <div>
-            <h4 style={{ fontSize: '0.9rem', textTransform: 'uppercase', color: 'white', marginBottom: '1.5rem' }}>Explore</h4>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', color: 'var(--text-secondary)' }}>
-              <a href="#">Services</a>
-              <a href="#">Portfolio</a>
-              <a href="#">About Us</a>
-              <a href="#">Careers</a>
-            </div>
-          </div>
-
-          <div>
-            <h4 style={{ fontSize: '0.9rem', textTransform: 'uppercase', color: 'white', marginBottom: '1.5rem' }}>Connect</h4>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', color: 'var(--text-secondary)' }}>
-              <a href="https://instagram.com/ezcut_media" target="_blank">Instagram</a>
-              <a href="#">LinkedIn</a>
-              <a href="#">Twitter</a>
-              <a href="mailto:hello@ezcutmedia.com">hello@ezcutmedia.com</a>
-            </div>
-          </div>
-        </div>
-        <div className="container" style={{ marginTop: '4rem', paddingTop: '2rem', borderTop: '1px solid #111', color: '#444', fontSize: '0.8rem', display: 'flex', justifyContent: 'space-between' }}>
-          <span>&copy; {new Date().getFullYear()} EZ Cut Media.</span>
-          <span>Privacy Policy</span>
-        </div>
-      </footer>
+      <Footer />
     </main>
   );
 }

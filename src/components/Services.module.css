@@ -47,6 +47,7 @@
     border-radius: 12px;
     transition: all 0.3s ease;
     text-align: center;
+    cursor: pointer;
 }
 
 .packageCard:hover {
@@ -111,6 +112,7 @@
     transition: all 0.3s ease;
     text-align: center;
     position: relative;
+    cursor: pointer;
 }
 
 .creatorCard:hover {
@@ -178,6 +180,7 @@
     padding: 3rem 2.5rem;
     border-radius: 12px;
     transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 .eventCard:hover {
@@ -204,6 +207,31 @@
     color: var(--text-secondary);
     line-height: 1.7;
     font-size: 1rem;
+}
+
+
+.featuresList {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.featureItem {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.featureIcon {
+    color: var(--primary);
+    min-width: 14px;
+    /* Ensure bullet doesn't shrink */
 }
 
 /* Mobile Responsive */
