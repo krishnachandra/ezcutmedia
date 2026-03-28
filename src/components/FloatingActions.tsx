@@ -35,10 +35,10 @@ export default function FloatingActions() {
                 </svg>
             </Link>
             <Link href="https://wa.me/919121930521" target="_blank" className={styles.fab} aria-label="WhatsApp">
-                <Image src="/assets/whatsapp.png" alt="WhatsApp" width={28} height={28} />
+                <Image src="/assets/whatsapp.png" alt="WhatsApp" width={28} height={28} sizes="28px" />
             </Link>
             <Link href="https://instagram.com/ezcut_media" target="_blank" className={styles.fab} aria-label="Instagram">
-                <Image src="/assets/instagram.png" alt="Instagram" width={28} height={28} />
+                <Image src="/assets/instagram.png" alt="Instagram" width={28} height={28} sizes="28px" />
             </Link>
         </div>
     );

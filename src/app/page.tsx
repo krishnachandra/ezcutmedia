@@ -3,9 +3,25 @@ import Hero from "@/components/Hero";
 import Services from "@/components/Services";
 import Process from "@/components/Process";
 import Footer from "@/components/Footer";
+import Image from "next/image";
 import styles from './page.module.css';
 
 export default function Home() {
+  const marqueeBrands = [
+    { src: "/assets/brands/nt_ticket_factory.png", alt: "Ticket Factory" },
+    { src: "/assets/brands/nt_hyd_times.jpg", alt: "Hyderabad Times Fashion Week" },
+    { src: "/assets/brands/nt_xiti.jpg", alt: "Xiti Weaves" },
+    { src: "/assets/brands/nt_skolors.png", alt: "SKOLORS" },
+    { src: "/assets/brands/nt_sapta_aswa.jpg", alt: "Sapta Aswa" },
+    { src: "/assets/brands/nt_malibu.png", alt: "Malibu" },
+    { src: "/assets/brands/nt_deccan_project.jpg", alt: "The Deccan Project" },
+    { src: "/assets/brands/nt_vyra.jpg", alt: "Vyra Entertainments" },
+    { src: "/assets/brands/nt_thrive.png", alt: "Thrive Events" }
+  ];
+  
+  // Duplicate array so it's long enough to cover ultra-wide 4k screens
+  const trackBrands = [...marqueeBrands, ...marqueeBrands];
+
   return (
     <main>
       <Navbar />
@@ -17,31 +33,25 @@ export default function Home() {
           <p style={{ color: 'var(--text-secondary)', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.15em', marginBottom: '2rem' }}>
             Trusted by Leading Creator Brands & Celebrities
           </p>
-          {/* Brand Logos */}
-          <div style={{ display: 'flex', gap: '3rem', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap' }}>
-            {[
-              { src: "/assets/brands/sapta_aswa.jpg", alt: "Sapta Aswa", width: 100 },
-              { src: "/assets/brands/thrive_events.jpg", alt: "Thrive Events", width: 100 },
-              { src: "/assets/brands/xiti.jpg", alt: "Xiti Weaves", width: 90 },
-              { src: "/assets/brands/malibu.jpg", alt: "Malibu", width: 100 },
-              { src: "/assets/brands/avm.jpg", alt: "AVM Entertainments", width: 60 }
-            ].map((brand, i) => (
-              <div key={i} style={{
-                position: 'relative',
-                width: brand.width,
-                height: 60,
-                filter: 'grayscale(100%) brightness(0.8)',
-                opacity: 0.7,
-                transition: 'all 0.3s'
-              }}>
-                {/* Using standard img tag for now to avoid Next.js Image component complexity with unknown dimensions/blur if not configured, or could use Image with objectFit contain */}
-                <img
-                  src={brand.src}
-                  alt={brand.alt}
-                  style={{ width: '100%', height: '100%', objectFit: 'contain' }}
-                />
-              </div>
-            ))}
+          {/* Brand Logos Marquee */}
+          <div className={styles.marqueeWrapper}>
+            <div className={styles.marqueeContent}>
+              {/* Render two identical tracks for an absolute perfect infinite loop */}
+              {[1, 2].map((trackIndex) => (
+                <div key={trackIndex} className={styles.marqueeTrack} aria-hidden={trackIndex === 2}>
+                  {trackBrands.map((brand, i) => (
+                    <div key={`${trackIndex}-${i}`} className={styles.brandItem}>
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={brand.src}
+                        alt={brand.alt}
+                        loading={trackIndex === 1 && i < 10 ? "eager" : "lazy"}
+                      />
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

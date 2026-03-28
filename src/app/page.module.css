@@ -159,3 +159,58 @@ a.secondary {
     gap: 1.5rem;
   }
 }
+
+/* Animated Marquee */
+.marqueeWrapper {
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  position: relative;
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  padding: 1rem 0;
+}
+
+.marqueeContent {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: scrollMarquee 40s linear infinite;
+}
+
+.marqueeTrack {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  padding-right: 4rem; /* Matches the gap to seamlessly connect to the next track */
+}
+
+.marqueeContent:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scrollMarquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); } 
+}
+
+.brandItem {
+  height: clamp(30px, 5vw, 65px); /* Responsive uniform height */
+  width: auto;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brandItem img {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+}
+
+.brandItem:hover {
+  opacity: 1;
+}

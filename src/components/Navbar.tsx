@@ -38,7 +38,9 @@ export default function Navbar() {
                             alt="EZ Cut Media"
                             width={40}
                             height={40}
+                            sizes="40px"
                             style={{ objectFit: 'contain' }}
+                            priority
                         />
                         <span>EZ CUT MEDIA</span>
                     </Link>
@@ -64,6 +66,7 @@ export default function Navbar() {
                                         alt="WhatsApp"
                                         width={28}
                                         height={28}
+                                        sizes="28px"
                                     />
                                 </Link>
                                 <Link href="tel:+919121930521" className={styles.iconLink}>
@@ -75,6 +78,7 @@ export default function Navbar() {
                                         alt="Instagram"
                                         width={28}
                                         height={28}
+                                        sizes="28px"
                                     />
                                 </Link>
                             </div>

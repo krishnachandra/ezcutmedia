@@ -150,11 +150,11 @@ export default function Hero() {
                         </Link>
 
                         <Link href="https://wa.me/919121930521" target="_blank" className={styles.heroIconLink} aria-label="WhatsApp">
-                            <Image src="/assets/whatsapp.png" alt="WhatsApp" width={40} height={40} />
+                            <Image src="/assets/whatsapp.png" alt="WhatsApp" width={40} height={40} sizes="40px" />
                         </Link>
 
                         <Link href="https://instagram.com/ezcut_media" target="_blank" className={styles.heroIconLink} aria-label="Instagram">
-                            <Image src="/assets/instagram.png" alt="Instagram" width={40} height={40} />
+                            <Image src="/assets/instagram.png" alt="Instagram" width={40} height={40} sizes="40px" />
                         </Link>
                     </div>
                 </div>
@@ -168,6 +168,7 @@ export default function Hero() {
                                 src="/assets/frame-v2.png"
                                 alt="iPhone Frame"
                                 fill
+                                sizes="288px"
                                 style={{ objectFit: 'contain' }}
                                 priority
                             />
@@ -209,14 +210,14 @@ export default function Hero() {
                                 {/* Right: Stacked Avatars */}
                                 <div style={{ display: 'flex', alignItems: 'center' }}>
                                     <div style={{ width: 20, height: 20, borderRadius: '50%', border: '1px solid black', overflow: 'hidden', position: 'relative', zIndex: 3 }}>
-                                        <Image src="/assets/founder.jpg" alt="User 1" fill style={{ objectFit: 'cover' }} />
+                                        <Image src="/assets/founder.jpg" alt="User 1" fill sizes="20px" style={{ objectFit: 'cover' }} />
                                     </div>
                                     <div style={{ width: 20, height: 20, borderRadius: '50%', border: '1px solid black', overflow: 'hidden', position: 'relative', marginLeft: -8, zIndex: 2 }}>
-                                        <Image src="/assets/user_reel_1.jpg" alt="User 2" fill style={{ objectFit: 'cover' }} />
+                                        <Image src="/assets/user_reel_1.jpg" alt="User 2" fill sizes="20px" style={{ objectFit: 'cover' }} />
                                     </div>
                                     <div style={{ width: 20, height: 20, borderRadius: '50%', border: '1px solid black', overflow: 'hidden', position: 'relative', marginLeft: -8, zIndex: 1, backgroundColor: '#333' }}>
                                         {/* Fallback/Third User */}
-                                        <Image src="/assets/user_reel_2.jpg" alt="User 3" fill style={{ objectFit: 'cover' }} />
+                                        <Image src="/assets/user_reel_2.jpg" alt="User 3" fill sizes="20px" style={{ objectFit: 'cover' }} />
                                     </div>
                                 </div>
                             </div>
@@ -230,8 +231,10 @@ export default function Hero() {
                                         src={item.src}
                                         alt={`${item.title} - Professional Instagram reel by EZ Cut Media showcasing ${item.views} views`}
                                         fill
+                                        sizes="270px"
                                         style={{ objectFit: 'cover' }}
                                         priority={i < 2}
+                                        loading={i < 2 ? 'eager' : 'lazy'}
                                     />
 
                                     {/* Play Button */}
@@ -354,17 +357,17 @@ export default function Hero() {
                                     }}>
                                         {/* Home Icon */}
                                         <div style={{ position: 'relative', width: 16, height: 16 }}>
-                                            <Image src="/assets/home.png" alt="Home" fill style={{ objectFit: 'contain' }} />
+                                            <Image src="/assets/home.png" alt="Home" fill sizes="16px" style={{ objectFit: 'contain' }} />
                                         </div>
 
                                         {/* Reels Icon */}
                                         <div style={{ position: 'relative', width: 16, height: 16 }}>
-                                            <Image src="/assets/reels.png" alt="Reels" fill style={{ objectFit: 'contain' }} />
+                                            <Image src="/assets/reels.png" alt="Reels" fill sizes="16px" style={{ objectFit: 'contain' }} />
                                         </div>
 
                                         {/* Send Icon */}
                                         <div style={{ position: 'relative', width: 16, height: 16 }}>
-                                            <Image src="/assets/send icon.png" alt="Send" fill style={{ objectFit: 'contain' }} />
+                                            <Image src="/assets/send icon.png" alt="Send" fill sizes="16px" style={{ objectFit: 'contain' }} />
                                         </div>
 
                                         {/* Search Icon */}

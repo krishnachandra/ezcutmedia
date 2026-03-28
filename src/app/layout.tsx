@@ -19,19 +19,23 @@ export const metadata: Metadata = {
   robots: "index, follow",
   openGraph: {
     type: "website",
-    locale: "en_IN",
-    url: "https://ezcutmedia.com",
-    siteName: "EZ Cut Media",
-    title: "EZ Cut Media | 30-Minute Video Production & Editing Services",
-    description: "Professional short-form video content delivered in under 30 minutes. Instagram reels, wedding videos, event coverage. Starting at ₹1,599. Hyderabad's fastest video production studio.",
+    url: "https://www.ezcutmedia.com/",
+    title: "EZ Cut Media | Professional Video Editing Services",
+    description: "High-quality, fast, and creative video editing for content creators and businesses.",
     images: [
       {
-        url: "https://ezcutmedia.com/assets/logo-icon.png",
+        url: "https://www.ezcutmedia.com/assets/logo-icon.png",
         width: 1200,
         height: 630,
-        alt: "EZ Cut Media - Content at the Speed of Culture",
+        alt: "EZ Cut Media Showcase",
       },
     ],
+  },
+  verification: {
+    google: "PASTE_GOOGLE_VERIFICATION_CODE_HERE",
+    other: {
+      "msvalidate.01": "PASTE_BING_VERIFICATION_CODE_HERE",
+    },
   },
   twitter: {
     card: "summary_large_image",
@@ -59,7 +63,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "ProfessionalService",
+              "@type": ["Organization", "ProfessionalService", "Service"],
               "@id": "https://ezcutmedia.com",
               "name": "EZ Cut Media",
               "alternateName": "EZCUT Media",
